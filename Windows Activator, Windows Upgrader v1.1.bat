@@ -18,7 +18,7 @@ if %errorlevel%==0 (
 ) else (
     echo wawu
 )
-title Windows Activator, Windows upgrader v1.0
+title Windows Activator, Windows upgrader v1.1
 echo - Select option:
 echo 1. Upgrade Windows to Windows Pro
 echo 2. Activate Windows 11 Pro/Windows 10 Pro
