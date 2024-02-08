@@ -1,4 +1,5 @@
 # wawu
 👨‍💻 Windows Activator, Windows Upgrader (WAWU)
 # Versions
-- 1.0 (current)
+- 1.1 (current)
+- 1.0
