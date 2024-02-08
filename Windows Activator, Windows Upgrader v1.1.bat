@@ -1,11 +1,8 @@
 @echo off
 
-:: Проверка прав администратора
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
-:: Если права администратора не были получены, повторный запуск с запросом прав
 if '%errorlevel%' NEQ '0' (
-    echo Повторный запуск с запросом прав...
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
     echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
     "%temp%\getadmin.vbs"
@@ -36,23 +33,18 @@ echo 10. Activate Windows 11 Corp G/Windows 10 Corp G
 echo 11. Activate Windows 11 Corp G N/Windows 10 Corp G N
 set /p choice="Select Number, and click enter: "
 if %choice%==1 (
-    Dism /Online /Get-TargetEditions
-)
-echo Select y(yes) or n(no)
-set /p yn="Do you see 'Professional' here?:"
-if %yn%==y (
-    sc config LicenseManager start= auto & net start LicenseManager
-    sc config wuauserv start= auto & net start wuauserv
-    changepk.exe /productkey VK7JG-NPHTM-C97JM-9MPGT-3V66T
-)
-if %yn%==n (
-    color 4
-    cls
-    echo You can't upgrade your Windows to  Windows Pro right now/or Windows Pro is already installed
-    timeout 5
-    color 3
-    cls
-    goto menu
+    ver | find "Pro" > nul
+    if %ERRORLEVEL% == 0 (
+        cls
+        color 4
+        echo Your version is not supported/or Windows Pro is already installed
+        timeout 3
+        goto menu
+    ) else (
+        sc config LicenseManager start= auto & net start LicenseManager
+        sc config wuauserv start= auto & net start wuauserv
+        changepk.exe /productkey VK7JG-NPHTM-C97JM-9MPGT-3V66T
+    )
 )
 if %choice%==2 (
     slmgr/ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
