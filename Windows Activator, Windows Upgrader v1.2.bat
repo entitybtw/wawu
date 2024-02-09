@@ -10,15 +10,17 @@ if '%errorlevel%' NEQ '0' (
     exit /B
 )
 
-color 3
+
 :menu
+color 3
+cls
 ping -n 1 pastebin.com >nul
 if %errorlevel%==0 (
-    curl https://pastebin.com/raw/QxRe8Ys3
+    curl -k https://pastebin.com/raw/QxRe8Ys3
 ) else (
     echo wawu
 )
-title Windows Activator, Windows upgrader v1.1
+title Windows Activator, Windows upgrader v1.2
 echo - Select option:
 echo 1. Upgrade Windows to Windows Pro
 echo 2. Activate Windows 11 Pro/Windows 10 Pro
@@ -33,18 +35,28 @@ echo 10. Activate Windows 11 Corp G/Windows 10 Corp G
 echo 11. Activate Windows 11 Corp G N/Windows 10 Corp G N
 set /p choice="Select Number, and click enter: "
 if %choice%==1 (
-    ver | find "Pro" > nul
-    if %ERRORLEVEL% == 0 (
+systeminfo | find "Windows 10 Pro" > nul
+if not errorlevel 1 (
+    cls
+    color 4
+    echo Your version is not supported/or Windows Pro is already installed
+    timeout 3
+    goto menu
+) else (
+    systeminfo | find "Windows 11 Pro" > nul
+    if not errorlevel 1 (
         cls
         color 4
         echo Your version is not supported/or Windows Pro is already installed
         timeout 3
         goto menu
-    ) else (
-        sc config LicenseManager start= auto & net start LicenseManager
-        sc config wuauserv start= auto & net start wuauserv
-        changepk.exe /productkey VK7JG-NPHTM-C97JM-9MPGT-3V66T
+) else (
+    sc config LicenseManager start= auto & net start LicenseManager
+    sc config wuauserv start= auto & net start wuauserv
+    changepk.exe /productkey VK7JG-NPHTM-C97JM-9MPGT-3V66T
     )
+  )
+) 
 )
 if %choice%==2 (
     slmgr/ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
