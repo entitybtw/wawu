@@ -6,4 +6,3 @@
 - 1.0
 # Support
 Windows 10, WIndows 11
-# ScreenShots
