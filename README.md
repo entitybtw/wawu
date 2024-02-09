@@ -6,4 +6,5 @@
 - 1.0
 # Support
 Windows 10, WIndows 11
-![ScreenShots](https://i.imgur.com/YFmfnLX.pngg "Optional title")
+# Screenshots
+![ScreenShots](https://i.imgur.com/YFmfnLX.pngg "ScreenShots")
