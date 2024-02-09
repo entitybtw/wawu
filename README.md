@@ -7,5 +7,3 @@
 # Support
 Windows 10, WIndows 11
 # ScreenShots
-
-<img src="https://i.imgur.com/YFmfnLX.png" </img>
