@@ -7,4 +7,4 @@
 # Support
 Windows 10, WIndows 11
 # Screenshots
-![ScreenShots](https://i.imgur.com/YFmfnLX.pngg "wawu")
+![ScreenShots](https://i.imgur.com/YFmfnLX.png "wawu")
