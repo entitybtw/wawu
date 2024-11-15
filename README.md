@@ -5,6 +5,6 @@
 - 1.1 
 - 1.0
 # Support
-Windows 10, WIndows 11
+Windows 10, WIndows 11, Flipper Zero
 # Screenshots
 ![ScreenShots](https://i.imgur.com/YFmfnLX.png "wawu")
